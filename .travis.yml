@@ -1,0 +1,26 @@
+osx_image: xcode8
+before_install:
+  - curl https://sh.rustup.rs -sSf | sh -s -- -y
+  - export PATH="${PATH}:$HOME/.cargo/bin"
+  - rustup target add aarch64-apple-ios
+  - rustup target add armv7s-apple-ios
+  - rustup target add armv7-apple-ios
+  - rustup target add i386-apple-ios
+  - rustup target add x86_64-apple-ios
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+install: carthage bootstrap --verbose
+language: objective-c
+xcode_project: iCepa.xcodeproj
+xcode_sdk:
+  - iphonesimulator
+  - macosx
+xcode_scheme:
+  - iCepa-iOS
+  - iCepa-Mac
+matrix:
+  exclude:
+    - xcode_scheme: iCepa-iOS
+      xcode_sdk: macosx
+    - xcode_scheme: iCepa-Mac
+      xcode_sdk: iphonesimulator

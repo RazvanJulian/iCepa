@@ -1,5 +1,7 @@
 # iCepa
 
+[![Build Status](https://travis-ci.org/iCepa/iCepa.svg?branch=master)](https://travis-ci.org/iCepa/iCepa)
+
 iCepa is an iOS system-wide VPN Tor client. It uses [Tor.framework](https://github.com/iCepa/Tor.framework) to manage its Tor instance, and [`tun2tor`](https://github.com/iCepa/tun2tor) to bridge VPN traffic to Tor. The project does *not* work yet, and is in progress.
 
 ## Requirements
